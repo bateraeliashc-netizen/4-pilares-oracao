@@ -100,6 +100,14 @@ padding:9px 14px; letter-spacing:.3px;
 border-bottom: 1px solid #C9A227;
 }
 
+.top-urgency .cd {
+font-variant-numeric: tabular-nums;
+font-weight:900; color:#0a0a0a;
+background:#C9A227; padding:2px 8px;
+border-radius:6px; margin-left:6px;
+display:inline-block;
+}
+
 /* ===== BÔNUS EXCLUSIVO ===== */
 .bonus-sec {
 background:#0d0d0d; padding: 40px 20px 34px;
@@ -141,7 +149,7 @@ transition: opacity .7s ease, transform .7s ease;
 <body>
 <div class="page">
 
-<div class="top-urgency">⏳ PROMOÇÃO ABENÇOADA — de R$47 por R$27 (tempo limitado)</div>
+<div class="top-urgency">⏳ PROMOÇÃO ABENÇOADA — de R$47 por R$27 · acaba em <span id="cd" class="cd">00:00:00</span></div>
 
 <!-- SEÇÃO 1 — Hero -->
 <a href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')" style="display:block">
@@ -286,6 +294,27 @@ io.unobserve(entry.target);
 });
 }, { threshold: 0.15 });
 els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- CONTADOR REGRESSIVO — reinicia todo dia à meia-noite -->
+<script>
+(function(){
+var cd = document.getElementById('cd');
+if(!cd) return;
+function pad(n){ return n < 10 ? '0' + n : '' + n; }
+function tick(){
+var now = new Date();
+var end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+var diff = end - now;
+if(diff < 0) diff = 0;
+var h = Math.floor(diff / 3600000);
+var m = Math.floor((diff % 3600000) / 60000);
+var s = Math.floor((diff % 60000) / 1000);
+cd.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+}
+tick();
+setInterval(tick, 1000);
 })();
 </script>
 
