@@ -145,6 +145,24 @@ animation: sheen 3.5s ease-in-out infinite;
 .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
 .reveal.is-visible { opacity:1; transform:translateY(0); }
 @media (prefers-reduced-motion: reduce) { .reveal{opacity:1;transform:none;transition:none;} .btn,.sticky-bar a{animation:none;} .scroll-cue svg{animation:none;} }
+
+.phone-mock-wrap { display:flex; justify-content:center; margin: 22px 0 6px; }
+.phone-mock { width:210px; height:420px; background:#000; border-radius:32px; border:3px solid #333; box-shadow:0 20px 50px rgba(0,0,0,.6); position:relative; overflow:hidden; padding:9px; }
+.phone-notch { position:absolute; top:9px; left:50%; transform:translateX(-50%); width:64px; height:16px; background:#000; border-radius:10px; z-index:5; }
+.phone-screen { width:100%; height:100%; background:#0a0a0a; border-radius:22px; position:relative; overflow:hidden; }
+.pm-frame { position:absolute; inset:0; padding:26px 13px 12px; opacity:0; transition:opacity .6s ease; display:flex; flex-direction:column; text-align:center; }
+.pm-frame.active { opacity:1; }
+.pm-eyebrow { font-family:Arial,sans-serif; font-size:7.5px; color:#C9A227; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+.pm-bar { height:4px; background:#1c1c1c; border-radius:4px; overflow:hidden; margin-bottom:12px; }
+.pm-bar-fill { height:100%; background:linear-gradient(90deg,#C9A227,#f0d878); border-radius:4px; }
+.pm-q { font-family:Georgia,serif; font-size:10.5px; color:#fff; line-height:1.35; margin-bottom:10px; text-align:left; }
+.pm-opt { font-family:Arial,sans-serif; font-size:8.5px; text-align:center; padding:6px 4px; border-radius:6px; border:1px solid #333; color:#ccc; margin-bottom:6px; }
+.pm-opt.sel { background:#C9A227; border-color:#C9A227; color:#0a0a0a; font-weight:700; }
+.pm-result-icon { font-size:24px; margin: 14px 0 4px; }
+.pm-result-title { font-family:Georgia,serif; font-size:14px; color:#C9A227; font-weight:700; margin-bottom:6px; }
+.pm-result-text { font-family:Arial,sans-serif; font-size:8px; color:#999; line-height:1.4; }
+.pm-cta { margin-top:auto; background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; font-family:Arial,sans-serif; font-size:8.5px; font-weight:800; padding:8px; border-radius:8px; }
+@media (prefers-reduced-motion: reduce) { .pm-frame{transition:none;} }
 </style>
 </head>
 <body>
@@ -250,8 +268,66 @@ Com Os 4 Pilares você vai:
 </div>
 </section>
 
+<!-- ============ S4B — DIAGNÓSTICO INTERATIVO ============ -->
+<section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:44px 20px 40px;text-align:center;z-index:5">
+<p class="eyebrow">Antes de decidir</p>
+<h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3">
+Descubra qual pilar está mais fraco na sua oração
+</h2>
+<p style="font-family:Arial,sans-serif;font-size:14px;color:#aaa;line-height:1.6">
+Diagnóstico rápido e gratuito — 8 perguntas, 1 minuto, resultado na hora.
+</p>
+
+<div class="phone-mock-wrap">
+<div class="phone-mock">
+<div class="phone-notch"></div>
+<div class="phone-screen">
+
+<div class="pm-frame active" data-f="1">
+<p class="pm-eyebrow">Pergunta 2 de 8</p>
+<div class="pm-bar"><div class="pm-bar-fill" style="width:25%"></div></div>
+<p class="pm-q">Tenho dificuldade de orar com calma quando estou ansioso...</p>
+<div class="pm-opt sel">Sim, é comigo</div>
+<div class="pm-opt">Não é bem assim</div>
+</div>
+
+<div class="pm-frame" data-f="2">
+<p class="pm-eyebrow">Pergunta 5 de 8</p>
+<div class="pm-bar"><div class="pm-bar-fill" style="width:62%"></div></div>
+<p class="pm-q">Depois que peço algo a Deus, fico tentando controlar como e quando a resposta vai vir.</p>
+<div class="pm-opt">Sim, é comigo</div>
+<div class="pm-opt sel">Não é bem assim</div>
+</div>
+
+<div class="pm-frame" data-f="3">
+<p class="pm-eyebrow">Pergunta 8 de 8</p>
+<div class="pm-bar"><div class="pm-bar-fill" style="width:100%"></div></div>
+<p class="pm-q">Já parei de orar sobre um assunto específico só pela demora.</p>
+<div class="pm-opt sel">Sim, é comigo</div>
+<div class="pm-opt">Não é bem assim</div>
+<div class="pm-cta" style="margin-top:14px">Ver meu resultado →</div>
+</div>
+
+<div class="pm-frame" data-f="4">
+<p class="pm-eyebrow">Seu pilar mais fraco é</p>
+<div class="pm-result-icon">⚓</div>
+<p class="pm-result-title">Ancoragem</p>
+<p class="pm-result-text">Sua oração tende a começar no problema, não em Deus...</p>
+<div class="pm-cta" style="margin-top:14px">Quero fortalecer →</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div style="padding-top:10px">
+<a class="btn" href="https://bateraeliashc-netizen.github.io/4-pilares-oracao/diagnostico.html" target="_blank" rel="noopener">FAZER MEU DIAGNÓSTICO GRÁTIS →</a>
+<p class="micro">Leva 1 minuto • Sem compromisso</p>
+</div>
+</section>
+
 <!-- ============ S5 — ENTREGÁVEIS ============ -->
-<section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:46px 20px;z-index:5">
+<section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:46px 20px;z-index:6">
 <p class="eyebrow">O que você recebe</p>
 <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;text-align:center;color:#fff;margin-bottom:28px">
 Tudo liberado na hora da compra
@@ -281,7 +357,7 @@ Tudo liberado na hora da compra
 </div>
 </section>
 <!-- ============ S6 — EMPILHAMENTO + PREÇO + GARANTIA ============ -->
-<section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:40px 20px 8px;z-index:6">
+<section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:40px 20px 8px;z-index:7">
 <div style="background:#151515;border:1px solid #262626;border-radius:20px;padding:24px 20px;text-align:center">
 <div style="text-align:left;margin-bottom:14px">
 <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:8px"><p style="font-family:Arial,sans-serif;font-size:13px;color:#ccc">Ebook + Audiobook — 4 Pilares</p><p style="font-family:Arial,sans-serif;font-size:13px;color:#666;text-decoration:line-through;white-space:nowrap">R$ 47</p></div>
@@ -315,7 +391,7 @@ Tudo liberado na hora da compra
 </section>
 
 <!-- ============ S7 — PARA QUEM É ============ -->
-<section class="sec sec-overlap reveal" style="background:#f4f4f4;padding:40px 20px;z-index:7">
+<section class="sec sec-overlap reveal" style="background:#f4f4f4;padding:40px 20px;z-index:8">
 <p class="eyebrow" style="color:#b8901c">Para quem é</p>
 <h2 style="font-family:Georgia,serif;font-size:21px;font-weight:700;text-align:center;color:#111;margin-bottom:20px">
 Isso é pra você que:
@@ -330,7 +406,7 @@ Isso é pra você que:
 </div>
 </section>
 <!-- ============ S8 — QUEM CRIOU ============ -->
-<section class="sec sec-overlap reveal" style="background:#111;padding:44px 20px;z-index:8">
+<section class="sec sec-overlap reveal" style="background:#111;padding:44px 20px;z-index:9">
 <p class="eyebrow">Quem escreveu</p>
 <div style="display:flex;gap:14px;align-items:center;margin-bottom:18px">
 <img src="../img/elias-foto.jpg" alt="Elias Henrique Cardoso" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #C9A227">
@@ -347,7 +423,7 @@ Foi estudando as Escrituras a fundo, não buscando fórmulas prontas, mas entend
 </section>
 
 <!-- ============ S9 — DUAS OPÇÕES + CTA FINAL ============ -->
-<section class="sec sec-overlap reveal" style="background:#fff;padding:44px 20px 0;z-index:9">
+<section class="sec sec-overlap reveal" style="background:#fff;padding:44px 20px 0;z-index:10">
 <p class="eyebrow" style="color:#b8901c">Chegou a hora</p>
 <h2 style="font-family:Georgia,serif;font-size:24px;font-weight:700;color:#111;text-align:center;margin-bottom:22px;line-height:1.25">
 Agora você tem duas opções
@@ -371,7 +447,7 @@ A opção 2 é <span style="color:#C9A227">a mais inteligente.</span>
 </section>
 
 <!-- ============ S10 — FAQ ============ -->
-<section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:44px 22px 24px;z-index:10">
+<section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:44px 22px 24px;z-index:11">
 <p class="eyebrow" style="margin-bottom:20px">Dúvidas frequentes</p>
 
 <div class="faq-item">
@@ -444,6 +520,19 @@ var h=Math.floor(diff/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor
 elH.textContent=pad(h); elM.textContent=pad(m); elS.textContent=pad(s);
 }
 tick(); setInterval(tick,1000);
+})();
+
+(function(){
+var frames = document.querySelectorAll('.pm-frame');
+if(!frames.length) return;
+var i = 0;
+var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduced) return;
+setInterval(function(){
+frames[i].classList.remove('active');
+i = (i + 1) % frames.length;
+frames[i].classList.add('active');
+}, 2600);
 })();
 </script>
 
