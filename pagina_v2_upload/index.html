@@ -42,6 +42,7 @@ font-family: 'Georgia', 'Times New Roman', serif;
 .page { max-width: 430px; margin: 0 auto; }
 img, video { display:block; max-width:100%; height:auto; }
 
+/* overlap entre seções — cria o ritmo dinâmico */
 .sec { position: relative; width: 100%; }
 .sec-overlap { margin-top: -24px; border-radius: 28px 28px 0 0; }
 
@@ -168,21 +169,6 @@ animation: sheen 3.5s ease-in-out infinite;
 <body>
 <div class="page">
 
-<div class="top-urgency">
-<span class="tu-badge"><span class="tu-icon">⏳</span>Promoção Abençoada</span>
-<div class="tu-price-row">
-<span class="tu-price-old">R$47</span>
-<span class="tu-price-new">R$27<em>à vista</em></span>
-</div>
-<p class="tu-sub">acaba em:</p>
-<div class="cd-wrap">
-<div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Horas</div></div>
-<span class="cd-sep">:</span>
-<div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Min</div></div>
-<span class="cd-sep">:</span>
-<div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl">Seg</div></div>
-</div>
-</div>
 <!-- ============ S1 — HERO COM VÍDEO REAL ============ -->
 <section class="sec" style="background:#0a0a0a;padding:24px 20px 20px;z-index:1">
 <p class="eyebrow">Ebook + Audiobook</p>
@@ -221,7 +207,7 @@ Os 4 Pilares da Oração Eficaz — o guia que te ensina a ter um encontro real 
 </div>
 </section>
 
-<!-- ============ S2 — RUMINAÇÃO ============ -->
+<!-- ============ S2 — RUMINAÇÃO (fundo claro, overlap) ============ -->
 <section class="sec sec-overlap reveal" style="background:#fff;padding:36px 20px 8px;z-index:2">
 <p class="eyebrow" style="color:#b8901c">Fala a verdade...</p>
 <h2 style="font-family:Georgia,serif;font-size:23px;font-weight:700;text-align:center;color:#111;margin-bottom:20px;line-height:1.25">
@@ -234,7 +220,7 @@ Algum desses pensamentos já passou pela sua cabeça?
 <div class="pain-card"><p>"Já tentei seguir roteiros prontos e não funcionou pra mim."</p></div>
 </section>
 
-<!-- ============ S3 — VIRADA ============ -->
+<!-- ============ S3 — VIRADA (fundo escuro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:46px 22px;text-align:center;z-index:3">
 <h2 style="font-family:Georgia,serif;font-size:26px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:8px">
 Mas e se o problema nunca foi a sua fé?
@@ -246,7 +232,8 @@ Quem ora com mais profundidade não é quem "tem mais fé".<br>
 É quem aprendeu a <strong style="color:#fff">estrutura de uma oração que Deus responde.</strong>
 </p>
 </section>
-<!-- ============ S4 — SE SIM + BENEFÍCIOS + SEM PRECISAR ============ -->
+
+<!-- ============ S4 — SE SIM + BENEFÍCIOS (fundo claro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#fff;padding:40px 20px;z-index:4">
 <p class="eyebrow" style="color:#b8901c">Se você se identificou</p>
 <h3 style="font-family:Georgia,serif;font-size:21px;font-weight:700;color:#111;text-align:center;line-height:1.25;margin-bottom:16px">
@@ -268,7 +255,7 @@ Com Os 4 Pilares você vai:
 </div>
 </section>
 
-<!-- ============ S4B — DIAGNÓSTICO INTERATIVO ============ -->
+<!-- ============ S4B — DIAGNÓSTICO INTERATIVO (fundo escuro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:44px 20px 40px;text-align:center;z-index:5">
 <p class="eyebrow">Antes de decidir</p>
 <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3">
@@ -326,7 +313,7 @@ Diagnóstico rápido e gratuito — 8 perguntas, 1 minuto, resultado na hora.
 </div>
 </section>
 
-<!-- ============ S5 — ENTREGÁVEIS ============ -->
+<!-- ============ S5 — ENTREGÁVEIS (fundo escuro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:46px 20px;z-index:6">
 <p class="eyebrow">O que você recebe</p>
 <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;text-align:center;color:#fff;margin-bottom:28px">
@@ -356,7 +343,8 @@ Tudo liberado na hora da compra
 </div>
 </div>
 </section>
-<!-- ============ S6 — EMPILHAMENTO + PREÇO + GARANTIA ============ -->
+
+<!-- ============ S6 — EMPILHAMENTO + PREÇO + CTA (fundo escuro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:40px 20px 8px;z-index:7">
 <div style="background:#151515;border:1px solid #262626;border-radius:20px;padding:24px 20px;text-align:center">
 <div style="text-align:left;margin-bottom:14px">
@@ -390,7 +378,7 @@ Tudo liberado na hora da compra
 </div>
 </section>
 
-<!-- ============ S7 — PARA QUEM É ============ -->
+<!-- ============ S7 — PARA QUEM É (fundo claro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#f4f4f4;padding:40px 20px;z-index:8">
 <p class="eyebrow" style="color:#b8901c">Para quem é</p>
 <h2 style="font-family:Georgia,serif;font-size:21px;font-weight:700;text-align:center;color:#111;margin-bottom:20px">
@@ -405,7 +393,8 @@ Isso é pra você que:
 <p style="font-family:Arial,sans-serif;font-size:14px;color:#b8901c;font-weight:700">Não precisa ser de nenhuma igreja específica — só ter vontade de orar melhor.</p>
 </div>
 </section>
-<!-- ============ S8 — QUEM CRIOU ============ -->
+
+<!-- ============ S8 — QUEM CRIOU (fundo escuro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#111;padding:44px 20px;z-index:9">
 <p class="eyebrow">Quem escreveu</p>
 <div style="display:flex;gap:14px;align-items:center;margin-bottom:18px">
@@ -422,7 +411,7 @@ Foi estudando as Escrituras a fundo, não buscando fórmulas prontas, mas entend
 </p>
 </section>
 
-<!-- ============ S9 — DUAS OPÇÕES + CTA FINAL ============ -->
+<!-- ============ S9 — DUAS OPÇÕES + CTA FINAL (fundo claro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#fff;padding:44px 20px 0;z-index:10">
 <p class="eyebrow" style="color:#b8901c">Chegou a hora</p>
 <h2 style="font-family:Georgia,serif;font-size:24px;font-weight:700;color:#111;text-align:center;margin-bottom:22px;line-height:1.25">
@@ -442,11 +431,11 @@ Agora você tem duas opções
 <h2 style="font-family:Georgia,serif;font-size:24px;font-weight:700;color:#111;text-align:center;margin-bottom:22px">
 A opção 2 é <span style="color:#C9A227">a mais inteligente.</span>
 </h2>
-<a class="btn" href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')">GARANTIR MINHA CÓPIA AGORA →</a>
+<a class="btn" href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')">GARANTIR MEU ACESSO AGORA →</a>
 <p class="micro" style="margin-bottom:22px">🔒 Pagamento seguro via Kiwify • Acesso imediato</p>
 </section>
 
-<!-- ============ S10 — FAQ ============ -->
+<!-- ============ S10 — FAQ (fundo escuro) ============ -->
 <section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:44px 22px 24px;z-index:11">
 <p class="eyebrow" style="margin-bottom:20px">Dúvidas frequentes</p>
 
@@ -506,20 +495,6 @@ e.preventDefault(); e.stopPropagation();
 v.muted = !v.muted;
 btn.textContent = v.muted ? '🔇 Ativar som' : '🔊 Som ativado';
 });
-})();
-
-(function(){
-var elH=document.getElementById('cd-h'), elM=document.getElementById('cd-m'), elS=document.getElementById('cd-s');
-if(!elH||!elM||!elS) return;
-function pad(n){ return n<10?'0'+n:''+n; }
-function tick(){
-var now=new Date();
-var end=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,0,0,0,0);
-var diff=end-now; if(diff<0) diff=0;
-var h=Math.floor(diff/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
-elH.textContent=pad(h); elM.textContent=pad(m); elS.textContent=pad(s);
-}
-tick(); setInterval(tick,1000);
 })();
 
 (function(){
