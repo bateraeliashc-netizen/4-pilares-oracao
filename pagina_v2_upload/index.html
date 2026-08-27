@@ -33,14 +33,34 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 </script>
 
 <style>
+:root {
+--warm-dark: radial-gradient(150% 95% at 50% -15%, #2b1e06 0%, #140f04 42%, #0a0a0a 74%);
+--warm-dark-soft: radial-gradient(150% 95% at 50% -15%, #221806 0%, #110d03 42%, #0a0a0a 74%);
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
 background: #0a0a0a;
 font-family: 'Georgia', 'Times New Roman', serif;
 -webkit-font-smoothing: antialiased;
 }
-.page { max-width: 430px; margin: 0 auto; }
+.page { max-width: 430px; margin: 0 auto; position: relative; }
+.page::before {
+content:'';
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 500;
+opacity: .045;
+mix-blend-mode: overlay;
+background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
 img, video { display:block; max-width:100%; height:auto; }
+.light-glow {
+position:absolute; top:-70px; left:50%; transform:translateX(-50%);
+width:320px; height:320px; border-radius:50%;
+background: radial-gradient(circle, rgba(201,162,39,.32) 0%, rgba(201,162,39,0) 70%);
+pointer-events:none; z-index:-1;
+}
 
 /* overlap entre seções — cria o ritmo dinâmico */
 .sec { position: relative; width: 100%; }
@@ -127,7 +147,7 @@ animation: sheen 3.5s ease-in-out infinite;
 .cd-lbl { font-family:Arial,sans-serif; font-size:9px; color:#C9A227; text-transform:uppercase; letter-spacing:1.2px; margin-top:3px; font-weight:700; }
 .cd-sep { font-family:Georgia,serif; font-size:22px; color:#C9A227; font-weight:900; }
 
-.sticky-bar { position:fixed; left:0; right:0; bottom:0; z-index:999; max-width:430px; margin:0 auto; background:rgba(10,10,10,.96); border-top:1px solid #C9A227; padding:10px 14px 12px; display:flex; align-items:center; gap:10px; backdrop-filter:blur(6px); }
+.sticky-bar { position:fixed; left:0; right:0; bottom:0; z-index:999; max-width:430px; margin:0 auto; background:rgba(20,14,4,.95); border-top:1px solid #C9A227; padding:10px 14px 12px; display:flex; align-items:center; gap:10px; backdrop-filter:blur(6px); }
 .sticky-bar .price { font-family:Arial,sans-serif; color:#C9A227; font-size:13px; line-height:1.2; white-space:nowrap; }
 .sticky-bar .price b { display:block; font-size:19px; color:#fff; }
 .sticky-bar a { flex:1; text-align:center; font-family:Arial,sans-serif; font-weight:900; font-size:14px; background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; padding:13px 10px; border-radius:12px; text-decoration:none; box-shadow:0 6px 18px rgba(34,197,94,.4); animation:pulseGlow 2.4s ease-in-out infinite; }
@@ -170,7 +190,8 @@ animation: sheen 3.5s ease-in-out infinite;
 <div class="page">
 
 <!-- ============ S1 — HERO COM VÍDEO REAL ============ -->
-<section class="sec" style="background:#0a0a0a;padding:24px 20px 20px;z-index:1">
+<section class="sec" style="background:var(--warm-dark);padding:24px 20px 20px;z-index:1">
+<div class="light-glow"></div>
 <p class="eyebrow">Ebook + Audiobook</p>
 <h1 style="font-family:Georgia,serif;font-size:27px;font-weight:700;line-height:1.18;text-align:center;color:#fff;margin-bottom:10px">
 Por que tanta gente ora <span style="color:#C9A227">e nada acontece?</span>
@@ -221,7 +242,7 @@ Algum desses pensamentos já passou pela sua cabeça?
 </section>
 
 <!-- ============ S3 — VIRADA (fundo escuro) ============ -->
-<section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:46px 22px;text-align:center;z-index:3">
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:46px 22px;text-align:center;z-index:3">
 <h2 style="font-family:Georgia,serif;font-size:26px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:8px">
 Mas e se o problema nunca foi a sua fé?
 </h2>
@@ -256,7 +277,7 @@ Com Os 4 Pilares você vai:
 </section>
 
 <!-- ============ S4B — DIAGNÓSTICO INTERATIVO (fundo escuro) ============ -->
-<section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:44px 20px 40px;text-align:center;z-index:5">
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark);padding:44px 20px 40px;text-align:center;z-index:5">
 <p class="eyebrow">Antes de decidir</p>
 <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3">
 Descubra qual pilar está mais fraco na sua oração
@@ -314,7 +335,7 @@ Diagnóstico rápido e gratuito — 8 perguntas, 1 minuto, resultado na hora.
 </section>
 
 <!-- ============ S5 — ENTREGÁVEIS (fundo escuro) ============ -->
-<section class="sec sec-overlap reveal" style="background:#0a0a0a;padding:46px 20px;z-index:6">
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:46px 20px;z-index:6">
 <p class="eyebrow">O que você recebe</p>
 <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;text-align:center;color:#fff;margin-bottom:28px">
 Tudo liberado na hora da compra
@@ -345,7 +366,8 @@ Tudo liberado na hora da compra
 </section>
 
 <!-- ============ S6 — EMPILHAMENTO + PREÇO + CTA (fundo escuro) ============ -->
-<section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:40px 20px 8px;z-index:7">
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:40px 20px 8px;z-index:7">
+<div class="light-glow" style="top:-20px;width:260px;height:260px"></div>
 <div style="background:#151515;border:1px solid #262626;border-radius:20px;padding:24px 20px;text-align:center">
 <div style="text-align:left;margin-bottom:14px">
 <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:8px"><p style="font-family:Arial,sans-serif;font-size:13px;color:#ccc">Ebook + Audiobook — 4 Pilares</p><p style="font-family:Arial,sans-serif;font-size:13px;color:#666;text-decoration:line-through;white-space:nowrap">R$ 47</p></div>
@@ -395,7 +417,7 @@ Isso é pra você que:
 </section>
 
 <!-- ============ S8 — QUEM CRIOU (fundo escuro) ============ -->
-<section class="sec sec-overlap reveal" style="background:#111;padding:44px 20px;z-index:9">
+<section class="sec sec-overlap reveal" style="background:radial-gradient(130% 100% at 30% 0%,#241a08 0%,#161311 45%,#111 78%);padding:44px 20px;z-index:9">
 <p class="eyebrow">Quem escreveu</p>
 <div style="display:flex;gap:14px;align-items:center;margin-bottom:18px">
 <img src="../img/elias-foto.jpg" alt="Elias Henrique Cardoso" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #C9A227">
@@ -436,7 +458,7 @@ A opção 2 é <span style="color:#C9A227">a mais inteligente.</span>
 </section>
 
 <!-- ============ S10 — FAQ (fundo escuro) ============ -->
-<section class="sec sec-overlap reveal" style="background:#0d0d0d;padding:44px 22px 24px;z-index:11">
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:44px 22px 24px;z-index:11">
 <p class="eyebrow" style="margin-bottom:20px">Dúvidas frequentes</p>
 
 <div class="faq-item">
