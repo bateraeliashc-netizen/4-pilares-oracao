@@ -516,18 +516,6 @@ i = (i + 1) % frames.length;
 frames[i].classList.add('active');
 }, 2600);
 })();
-
-(function(){
-if(!ebFrames.length) return;
-var j = 0;
-var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(reduced) return;
-setInterval(function(){
-ebFrames[j].classList.remove('active');
-j = (j + 1) % ebFrames.length;
-ebFrames[j].classList.add('active');
-}, 2300);
-})();
 </script>
 
 </body>
