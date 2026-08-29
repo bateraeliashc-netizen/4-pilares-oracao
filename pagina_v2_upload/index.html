@@ -1285,6 +1285,569 @@ color: #0a0a0a; font-size: 13px; font-weight: 900; flex-shrink: 0;
 .pm-cta { margin-top:auto; background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; font-family:'Inter',Arial,sans-serif; font-size:8.5px; font-weight:800; padding:8px; border-radius:8px; }
 @media (prefers-reduced-motion: reduce) { .pm-frame{transition:none;} }
 
+
+.hero-media { position:relative; display:block; width:100%; border:0; padding:0; background:#000; border-radius:18px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,.6); cursor:pointer; }
+.hero-media img, .hero-media video { width:100%; display:block; }
+.hero-media::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.45) 100%); pointer-events:none; }
+.play-badge { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:62px; height:62px; border-radius:50%; background:rgba(10,10,10,.45); border:2px solid rgba(255,255,255,.9); color:#fff; font-size:20px; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(3px); animation: playPulse 2.2s ease-in-out infinite; z-index:2; }
+.play-badge svg { width:20px; height:20px; margin-left:3px; }
+@keyframes playPulse { 0%,100%{transform:translate(-50%,-50%) scale(1); box-shadow:0 0 0 0 rgba(255,255,255,.25);} 50%{transform:translate(-50%,-50%) scale(1.07); box-shadow:0 0 0 10px rgba(255,255,255,0);} }
+.hero-caption { position:absolute; left:12px; bottom:12px; z-index:2; background:rgba(10,10,10,.55); border:1px solid rgba(201,162,39,.5); color:#f0d878; font-family:'Inter',Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:.3px; padding:6px 10px; border-radius:20px; backdrop-filter:blur(3px); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ============ S1 — HERO: HEADLINE + IMAGEM ESTÁTICA (curiosidade real, sem vídeo autoplay pesando o LCP) ============ -->
+<section class="sec" style="background:var(--warm-dark);padding:24px 20px 20px;z-index:1">
+<div class="light-glow"></div>
+<p class="eyebrow">Ebook + Audiobook</p>
+<h1 style="font-family:'Fraunces',Georgia,serif;font-size:27px;font-weight:700;line-height:1.18;text-align:center;color:#241d08;margin-bottom:10px">
+Por que tanta gente ora <span style="color:#C9A227">e nada acontece?</span>
+</h1>
+<p style="font-family:'Inter',Arial,sans-serif;font-size:14.5px;color:#6b5a35;text-align:center;line-height:1.6;margin-bottom:18px">
+Os 4 Pilares da Oração Eficaz — o guia que te ensina a ter um encontro real com Deus, não só repetir pedidos.
+</p>
+
+<div style="margin-bottom:18px">
+<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="color:#C9A227;font-weight:900;flex-shrink:0">✓</span><p style="font-family:'Inter',Arial,sans-serif;font-size:13.5px;color:#55462a;line-height:1.4">Funciona mesmo se você já tentou de tudo e sente que não sabe orar direito</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="color:#C9A227;font-weight:900;flex-shrink:0">✓</span><p style="font-family:'Inter',Arial,sans-serif;font-size:13.5px;color:#55462a;line-height:1.4">Leva poucos minutos por dia para sentir a diferença</p></div>
+</div>
+
+<div class="hero-media" id="heroMedia" role="button" tabindex="0" aria-label="Assistir Elias explicar o maior erro na oração">
+<img id="heroImg" src="data:image/jpeg;base64,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" alt="Elias Henrique Cardoso perguntando: você sabe qual é o maior erro na hora de orar?" fetchpriority="high">
+<video id="heroVideo" src="video/hero_com_cta.mp4" poster="../img/hero-poster.jpg" playsinline preload="none" style="display:none"></video>
+<span class="hero-caption">🎤 Elias explica em 23s</span>
+<span class="play-badge" id="playBadge" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+</span>
+<span class="mute-btn" id="muteBtn" style="display:none">🔇 Ativar som</span>
+</div>
+
+<div style="padding-top:18px">
+<a class="btn" href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')">QUERO TRANSFORMAR MINHA ORAÇÃO →</a>
+<p class="micro">🔒 Pagamento seguro via Kiwify • Acesso imediato por e-mail</p>
+</div>
+</section>
+
+<!-- ============ S2 — RUMINAÇÃO (fundo claro, overlap) ============ -->
+<section class="sec sec-overlap reveal" style="background:#fff;padding:36px 20px 8px;z-index:2">
+<p class="eyebrow" style="color:#b8901c">Fala a verdade...</p>
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:23px;font-weight:700;text-align:center;color:#111;margin-bottom:20px;line-height:1.25">
+Algum desses pensamentos já passou pela sua cabeça?
+</h2>
+<div class="pain-card"><p><span style="font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:700;color:#C9A227;line-height:0;vertical-align:-6px;margin-right:2px">"</span>Eu oro todo dia, mas parece que minha oração não sai do lugar.</p></div>
+<div class="pain-card"><p><span style="font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:700;color:#C9A227;line-height:0;vertical-align:-6px;margin-right:2px">"</span>Só sei orar pedindo. Na hora de agradecer ou adorar, travo.</p></div>
+<div class="pain-card"><p><span style="font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:700;color:#C9A227;line-height:0;vertical-align:-6px;margin-right:2px">"</span>Acabei dependendo só da oração dos outros por mim.</p></div>
+<div class="pain-card"><p><span style="font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:700;color:#C9A227;line-height:0;vertical-align:-6px;margin-right:2px">"</span>Sinto que Deus está longe, mesmo orando todos os dias.</p></div>
+<div class="pain-card"><p><span style="font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:700;color:#C9A227;line-height:0;vertical-align:-6px;margin-right:2px">"</span>Já tentei seguir roteiros prontos e não funcionou pra mim.</p></div>
+</section>
+
+<!-- ============ S3 — VIRADA (fundo escuro) ============ -->
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:46px 22px;text-align:center;z-index:3">
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:700;color:#241d08;line-height:1.22;margin-bottom:8px">
+Mas e se o problema <em style="font-style:italic">nunca</em> foi a sua fé?
+</h2>
+<p style="font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:700;color:#C9A227;margin-bottom:16px">E se for só não conhecer os 4 pilares?</p>
+<div style="width:44px;height:3px;background:#C9A227;border-radius:2px;margin:0 auto 18px"></div>
+<p style="font-family:'Inter',Arial,sans-serif;font-size:15px;color:#6b5a35;line-height:1.75">
+Quem ora com mais profundidade não é quem "tem mais fé".<br>
+É quem aprendeu a <strong style="color:#241d08">estrutura de uma oração que Deus responde.</strong>
+</p>
+</section>
+
+<!-- ============ S4 — SE SIM + BENEFÍCIOS (fundo claro) ============ -->
+<section class="sec sec-overlap reveal" style="background:#fff;padding:40px 20px;z-index:4">
+<p class="eyebrow" style="color:#b8901c">Se você se identificou</p>
+<h3 style="font-family:'Fraunces',Georgia,serif;font-size:21px;font-weight:700;color:#111;text-align:center;line-height:1.25;margin-bottom:16px">
+Com Os 4 Pilares você vai:
+</h3>
+<div style="width:44px;height:3px;background:#C9A227;border-radius:2px;margin:0 auto 20px"></div>
+
+<div class="check-item"><div class="check-dot">✓</div><p>Entender os 4 pilares bíblicos que sustentam uma oração <strong>que Deus responde</strong></p></div>
+<div class="check-item"><div class="check-dot">✓</div><p>Sair do "só pedir" e aprender a <strong>adorar, agradecer e ouvir</strong></p></div>
+<div class="check-item"><div class="check-dot">✓</div><p>Ter um <strong>encontro real</strong> com Deus, não uma lista de pedidos</p></div>
+<div class="check-item"><div class="check-dot">✓</div><p>Orar com direção mesmo em dias de dúvida ou cansaço</p></div>
+<div class="check-item"><div class="check-dot">✓</div><p>Levar sua oração pra qualquer lugar, ouvindo o audiobook</p></div>
+
+<div style="background:#f4f4f4;border-radius:14px;padding:18px 18px;margin-top:20px">
+<p style="font-family:'Inter',Arial,sans-serif;font-size:12.5px;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;text-align:center">Simples assim. Sem precisar de:</p>
+<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="color:#c0392b;font-weight:900;flex-shrink:0">✕</span><p style="font-family:'Inter',Arial,sans-serif;font-size:13.5px;color:#555;line-height:1.4">Força de vontade sobre-humana</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="color:#c0392b;font-weight:900;flex-shrink:0">✕</span><p style="font-family:'Inter',Arial,sans-serif;font-size:13.5px;color:#555;line-height:1.4">Decorar orações longas ou versículos de cor</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#c0392b;font-weight:900;flex-shrink:0">✕</span><p style="font-family:'Inter',Arial,sans-serif;font-size:13.5px;color:#555;line-height:1.4">Ter 1 hora livre por dia — são só alguns minutos</p></div>
+</div>
+</section>
+
+<!-- ============ S4B — DIAGNÓSTICO INTERATIVO (fundo escuro) ============ -->
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark);padding:44px 20px 40px;text-align:center;z-index:5">
+<p class="eyebrow">Antes de decidir</p>
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:700;color:#241d08;margin-bottom:10px;line-height:1.3">
+Descubra qual pilar está mais fraco na sua oração
+</h2>
+<p style="font-family:'Inter',Arial,sans-serif;font-size:14px;color:#6b5a35;line-height:1.6">
+Diagnóstico rápido e gratuito — 8 perguntas, 1 minuto, resultado na hora.
+</p>
+
+<div class="phone-mock-wrap">
+<div class="phone-mock">
+<div class="phone-notch"></div>
+<div class="phone-screen">
+
+<div class="pm-frame active" data-f="1">
+<p class="pm-eyebrow">Pergunta 2 de 8</p>
+<div class="pm-bar"><div class="pm-bar-fill" style="width:25%"></div></div>
+<p class="pm-q">Tenho dificuldade de orar com calma quando estou ansioso...</p>
+<div class="pm-opt sel">Sim, é comigo</div>
+<div class="pm-opt">Não é bem assim</div>
+</div>
+
+<div class="pm-frame" data-f="2">
+<p class="pm-eyebrow">Pergunta 5 de 8</p>
+<div class="pm-bar"><div class="pm-bar-fill" style="width:62%"></div></div>
+<p class="pm-q">Depois que peço algo a Deus, fico tentando controlar como e quando a resposta vai vir.</p>
+<div class="pm-opt">Sim, é comigo</div>
+<div class="pm-opt sel">Não é bem assim</div>
+</div>
+
+<div class="pm-frame" data-f="3">
+<p class="pm-eyebrow">Pergunta 8 de 8</p>
+<div class="pm-bar"><div class="pm-bar-fill" style="width:100%"></div></div>
+<p class="pm-q">Já parei de orar sobre um assunto específico só pela demora.</p>
+<div class="pm-opt sel">Sim, é comigo</div>
+<div class="pm-opt">Não é bem assim</div>
+<div class="pm-cta" style="margin-top:14px">Ver meu resultado →</div>
+</div>
+
+<div class="pm-frame" data-f="4">
+<p class="pm-eyebrow">Seu pilar mais fraco é</p>
+<div class="pm-result-icon">⚓</div>
+<p class="pm-result-title">Ancoragem</p>
+<p class="pm-result-text">Sua oração tende a começar no problema, não em Deus...</p>
+<div class="pm-cta" style="margin-top:14px">Quero fortalecer →</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div style="padding-top:10px">
+<a class="btn" href="https://bateraeliashc-netizen.github.io/4-pilares-oracao/diagnostico.html" target="_blank" rel="noopener">FAZER MEU DIAGNÓSTICO GRÁTIS →</a>
+<p class="micro">Leva 1 minuto • Sem compromisso</p>
+</div>
+</section>
+
+<!-- ============ S5 — ENTREGÁVEIS (fundo escuro) ============ -->
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:46px 20px;z-index:6">
+<p class="eyebrow">O que você recebe</p>
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:700;text-align:center;color:#241d08;margin-bottom:28px">
+Tudo liberado na hora da compra
+</h2>
+
+<p style="font-family:'Inter',Arial,sans-serif;font-size:12.5px;color:#C9A227;text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">📖 Uma espiada real no ebook</p>
+<div class="phone-mock-wrap" style="margin:0 0 26px">
+<div class="phone-mock">
+<div class="phone-notch"></div>
+<div class="phone-screen" style="background:#f4efe6">
+<video src="video/ebook_loop.mp4" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+
+</div>
+</div>
+</div>
+
+<p style="font-family:'Inter',Arial,sans-serif;font-size:12.5px;color:#C9A227;text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">🎧 Ouça o audiobook onde estiver</p>
+<div class="phone-mock-wrap" style="margin:0 0 26px">
+<div class="phone-mock">
+<div class="phone-notch"></div>
+<div class="phone-screen" style="background:#0a0a0a">
+<video src="video/audiobook_loop.mp4" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+</div>
+</div>
+</div>
+
+<div class="etemmais"><span>E tem mais!</span></div>
+
+<div class="card-bonus">
+<img src="../img/bonus-cover-novo.jpg" alt="Capa do bônus 21 Dias de Orações Guiadas" style="width:100%;display:block">
+<div style="padding:14px 16px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<span class="badge">Bônus exclusivo</span>
+</div>
+<p style="color:#241d08;font-size:15.5px;font-weight:800;margin-bottom:6px;font-family:'Fraunces',Georgia,serif">21 Dias de Orações Guiadas</p>
+<p style="color:#7a6845;font-family:'Inter',Arial,sans-serif;font-size:13px;line-height:1.55">Devocional prático pra aplicar os 4 Pilares no seu dia a dia, com reflexão e oração guiada pra cada um dos 21 dias.</p>
+<span style="display:inline-block;margin-top:9px;color:#22c55e;font-family:'Inter',Arial,sans-serif;font-size:12.5px;font-weight:900">✓ Já incluso na sua compra</span>
+</div>
+</div>
+</section>
+
+<!-- ============ S6 — EMPILHAMENTO + PREÇO + CTA (fundo escuro) ============ -->
+<section class="sec sec-overlap reveal" id="s6-price" style="background:var(--warm-dark-soft);padding:40px 20px 8px;z-index:7">
+<div class="light-glow" style="top:-20px;width:260px;height:260px"></div>
+<div style="background:#fffbf0;border:1px solid #ecdfba;border-radius:20px;padding:24px 20px;text-align:center">
+<div style="text-align:left;margin-bottom:14px">
+<div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:8px"><p style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#55462a">Ebook + Audiobook — 4 Pilares</p><p style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#9c8a5c;text-decoration:line-through;white-space:nowrap">R$ 47</p></div>
+<div style="display:flex;justify-content:space-between;gap:10px"><p style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#55462a">Bônus — 21 Dias de Orações Guiadas</p><p style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#9c8a5c;text-decoration:line-through;white-space:nowrap">R$ 37</p></div>
+</div>
+<div style="border-top:1px solid #ecdfba;margin-bottom:14px"></div>
+<p style="font-family:'Inter',Arial,sans-serif;color:#8a7850;font-size:12.5px;margin-bottom:4px">Total avulso: <s>R$ 84</s></p>
+<p style="font-family:'Inter',Arial,sans-serif;color:#241d08;font-size:14px;margin-bottom:2px">Hoje, tudo junto, por apenas:</p>
+<p style="font-family:'Fraunces',Georgia,serif;color:#C9A227;font-weight:900;line-height:1;margin-bottom:6px"><span style="font-size:20px;font-weight:600;vertical-align:12px">R$</span> <span style="font-size:48px">27</span></p>
+<p style="font-family:'Inter',Arial,sans-serif;color:#22c55e;font-size:13px;font-weight:800;margin-bottom:6px">Você economiza R$ 57</p>
+<p style="font-family:'Inter',Arial,sans-serif;color:#8a7850;font-size:12.5px">à vista ou em até 5x no cartão</p>
+</div>
+
+<div style="padding-top:18px">
+<a class="btn" href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')">GARANTIR AGORA POR R$27 →</a>
+<p class="micro">🔒 Pagamento seguro via Kiwify • PIX, cartão em até 5x ou boleto</p>
+</div>
+
+<div class="guarantee" style="text-align:center;padding:26px 0 4px">
+<svg class="guarantee-seal" viewBox="0 0 200 200" role="img" aria-label="Satisfação garantida">
+<circle cx="100" cy="100" r="94" fill="#151515" stroke="#C9A227" stroke-width="4"/>
+<circle cx="100" cy="100" r="80" fill="none" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="4 4"/>
+<circle cx="100" cy="66" r="30" fill="#C9A227"/>
+<path d="M86 66 L96 76 L116 54" fill="none" stroke="#151515" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="100" y="122" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="17" fill="#C9A227" letter-spacing="1">SATISFAÇÃO</text>
+<text x="100" y="144" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="17" fill="#C9A227" letter-spacing="1">GARANTIDA</text>
+<text x="100" y="164" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="11" fill="#C9A227" letter-spacing="2">100%</text>
+</svg>
+<p style="font-family:'Inter',Arial,sans-serif;color:#7a6845;font-size:13px;line-height:1.6;max-width:280px;margin:10px auto 0">Você tem <strong style="color:#C9A227">7 dias</strong> pra testar. Se não for pra você, devolvemos <strong style="color:#241d08">100% do valor</strong>, sem burocracia.</p>
+</div>
+</section>
+
+<!-- ============ S7 — PARA QUEM É (fundo claro) ============ -->
+<section class="sec sec-overlap reveal" style="background:#f4f4f4;padding:40px 20px;z-index:8">
+<p class="eyebrow" style="color:#b8901c">Para quem é</p>
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:21px;font-weight:700;text-align:center;color:#111;margin-bottom:20px">
+Isso é pra você que:
+</h2>
+<div class="check-item"><div class="check-dot" style="background:#0a0a0a;color:#C9A227">✓</div><p>Ora todos os dias, mas sente que falta profundidade</p></div>
+<div class="check-item"><div class="check-dot" style="background:#0a0a0a;color:#C9A227">✓</div><p>Já tentou roteiros prontos e não se aplicaram à sua realidade</p></div>
+<div class="check-item"><div class="check-dot" style="background:#0a0a0a;color:#C9A227">✓</div><p>Quer uma vida de oração mais consistente, não só em momentos de crise</p></div>
+<div class="check-item"><div class="check-dot" style="background:#0a0a0a;color:#C9A227">✓</div><p>Prefere aprender ouvindo (audiobook) no trânsito, na caminhada, em casa</p></div>
+<div style="background:rgba(201,162,39,.12);border-radius:16px;padding:20px;text-align:center;margin-top:18px">
+<p style="font-family:'Fraunces',Georgia,serif;font-size:19px;font-weight:700;color:#111;margin-bottom:4px">Isso é pra você.</p>
+<p style="font-family:'Inter',Arial,sans-serif;font-size:14px;color:#b8901c;font-weight:700">Não precisa ser de nenhuma igreja específica — só ter vontade de orar melhor.</p>
+</div>
+</section>
+
+<!-- ============ S8 — QUEM CRIOU (fundo escuro) ============ -->
+<section class="sec sec-overlap reveal" style="background:radial-gradient(130% 100% at 30% 0%,#fdf3dc 0%,#f8e9c8 45%,#f2ddac 78%);padding:44px 20px;z-index:9">
+<p class="eyebrow">Quem escreveu</p>
+<div style="display:flex;gap:14px;align-items:center;margin-bottom:18px">
+<img src="../img/elias-foto.jpg" alt="Elias Henrique Cardoso" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #C9A227">
+<div>
+<p style="font-family:'Fraunces',Georgia,serif;color:#C9A227;font-size:18px;font-weight:700">Elias Henrique Cardoso</p>
+<p style="font-family:'Inter',Arial,sans-serif;color:#7a6845;font-size:12.5px">Autor de Os 4 Pilares da Oração Eficaz</p>
+</div>
+</div>
+<p style="font-family:'Inter',Arial,sans-serif;color:#5a4a28;font-size:14px;line-height:1.85;border-left:3px solid #C9A227;padding-left:14px">
+Por anos, minha oração seguia sempre o mesmo roteiro: eu abria a boca e começava pelo problema. Contava a Deus tudo o que estava errado, pedia, repetia, e no fundo sentia que estava só recitando palavras, sem ver mudança real. Também dependi muito de campanhas, correntes e mensagens de oração de outras pessoas, torcendo pra que aquilo fizesse alguma diferença.<br><br>
+Foi estudando as Escrituras a fundo, não buscando fórmulas prontas, mas entendendo como Josafá, Ana, Daniel e o próprio Jesus oravam, que percebi que o problema nunca tinha sido falta de oração. Era falta de fundamento. Quando comecei a aplicar esses 4 pilares na minha própria vida de oração, tudo mudou — não da noite pro dia, mas de um jeito real e sustentável.<br><br>
+<span style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:16px;color:#8a6510">"Os 4 Pilares da Oração Eficaz"</span> nasceu dessa busca pessoal: um material direto, sem enrolação, para quem já ora mas sente que falta profundidade.
+</p>
+</section>
+
+<!-- ============ S9 — DUAS OPÇÕES + CTA FINAL (fundo claro) ============ -->
+<section class="sec sec-overlap reveal" style="background:#fff;padding:44px 20px 0;z-index:10">
+<p class="eyebrow" style="color:#b8901c">Chegou a hora</p>
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:700;color:#111;text-align:center;margin-bottom:22px;line-height:1.25">
+Agora você tem duas opções
+</h2>
+
+<div style="background:#f4f4f4;border-radius:16px;padding:18px 18px;margin-bottom:12px">
+<span style="display:inline-block;background:#ddd;color:#555;font-family:'Inter',Arial,sans-serif;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;text-transform:uppercase;margin-bottom:8px">Opção 1</span>
+<p style="font-family:'Inter',Arial,sans-serif;font-size:14.5px;color:#555;line-height:1.6">Continuar orando do mesmo jeito, sentindo que falta alguma coisa e sem saber exatamente o quê.</p>
+</div>
+<div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);border-radius:16px;padding:18px 18px;margin-bottom:22px">
+<span class="badge" style="background:#16a34a;color:#fff">Opção 2</span>
+<p style="font-family:'Inter',Arial,sans-serif;font-size:14.5px;color:#222;line-height:1.6;margin-top:8px">Aprender os 4 pilares hoje, por R$27, e começar a ter uma oração com direção e profundidade.</p>
+</div>
+
+<p style="font-family:'Inter',Arial,sans-serif;color:#888;font-size:14px;text-align:center;margin-bottom:4px">Eu sei, e você também sabe:</p>
+<h2 style="font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:700;color:#111;text-align:center;margin-bottom:22px">
+A opção 2 é <span style="color:#C9A227;font-style:italic">a mais inteligente.</span>
+</h2>
+<a class="btn" href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')">GARANTIR MEU ACESSO AGORA →</a>
+<p class="micro" style="margin-bottom:22px">🔒 Pagamento seguro via Kiwify • Acesso imediato</p>
+</section>
+
+<!-- ============ S10 — FAQ (fundo escuro) ============ -->
+<section class="sec sec-overlap reveal" style="background:var(--warm-dark-soft);padding:44px 22px 24px;z-index:11">
+<p class="eyebrow" style="margin-bottom:20px">Dúvidas frequentes</p>
+
+<div class="faq-item">
+<p class="q">Como recebo o ebook e o audiobook?</p>
+<p class="a">Imediatamente após a confirmação do pagamento, você recebe o acesso por e-mail e pode baixar o PDF e o áudio no seu celular ou computador.</p>
+</div>
+<div class="faq-item">
+<p class="q">Funciona no celular?</p>
+<p class="a">Sim. O ebook pode ser lido em qualquer celular, tablet ou computador, e o audiobook você ouve direto pelo player, onde e quando quiser.</p>
+</div>
+<div class="faq-item">
+<p class="q">Quais as formas de pagamento?</p>
+<p class="a">PIX, cartão de crédito (em até 5x) ou boleto, processado com segurança pela Kiwify.</p>
+</div>
+<div class="faq-item">
+<p class="q">Preciso ser de alguma igreja específica pra aproveitar o conteúdo?</p>
+<p class="a">Não. O conteúdo é baseado em princípios bíblicos e serve pra qualquer pessoa que deseja aprofundar sua vida de oração.</p>
+</div>
+<div class="faq-item">
+<p class="q">E se eu comprar e não gostar?</p>
+<p class="a">Você tem 7 dias de garantia. Se sentir que não era o que procurava, basta pedir o reembolso e devolvemos 100% do valor, sem burocracia.</p>
+</div>
+
+<div style="text-align:center;padding-top:20px">
+<p style="color:#3a3a3a;font-family:'Inter',Arial,sans-serif;font-size:11px;line-height:1.6">
+Os 4 Pilares da Oração Eficaz — Elias Henrique Cardoso<br>
+Este produto é comercializado por ELIAS HENRIQUE CARDOSO. A Kiwify não possui qualquer responsabilidade pelo conteúdo do produto.
+</p>
+</div>
+</section>
+
+</div>
+
+<!-- BARRA FIXA -->
+<div class="sticky-bar">
+<div class="price">De <s style="color:#9c8a5c">R$47</s><b>R$ 27,00</b></div>
+<a href="https://pay.kiwify.com.br/p3a1nBS" target="_blank" rel="noopener" onclick="if(window.fbq)fbq('track','InitiateCheckout')">GARANTIR AGORA →</a>
+</div>
+
+<script>
+(function(){
+var els = document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('is-visible');}); return; }
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); } });
+}, { threshold: 0.12 });
+els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var wrap = document.getElementById('heroMedia');
+  var img = document.getElementById('heroImg');
+  var v = document.getElementById('heroVideo');
+  var badge = document.getElementById('playBadge');
+  var caption = wrap ? wrap.querySelector('.hero-caption') : null;
+  var btn = document.getElementById('muteBtn');
+  if(!wrap || !v) return;
+
+  function playHero(){
+    if(v.dataset.playing) return;
+    v.dataset.playing = '1';
+    if(window.fbq) fbq('track','ViewContent',{content_name:'hero_video_click_to_play'});
+    img.style.display = 'none';
+    if(caption) caption.style.display = 'none';
+    badge.style.display = 'none';
+    v.style.display = 'block';
+    btn.style.display = 'block';
+    v.muted = false;
+    v.play().catch(function(){
+      v.muted = true;
+      btn.textContent = '🔇 Ativar som';
+      v.play();
+    });
+  }
+
+  wrap.addEventListener('click', function(){ playHero(); });
+  wrap.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); playHero(); }
+  });
+  btn.addEventListener('click', function(e){
+    e.preventDefault(); e.stopPropagation();
+    v.muted = !v.muted;
+    btn.textContent = v.muted ? '🔇 Ativar som' : '🔊 Som ativado';
+  });
+})();
+
+(function(){
+var frames = document.querySelectorAll('.pm-frame');
+if(!frames.length) return;
+var i = 0;
+var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduced) return;
+setInterval(function(){
+frames[i].classList.remove('active');
+i = (i + 1) % frames.length;
+frames[i].classList.add('active');
+}, 2600);
+})();
+
+(function(){
+var bar = document.querySelector('.sticky-bar');
+var trigger = document.getElementById('s6-price');
+if(!bar || !trigger){ if(bar) bar.classList.add('is-visible'); return; }
+if(!('IntersectionObserver' in window)){ bar.classList.add('is-visible'); return; }
+var io2 = new IntersectionObserver(function(entries){
+entries.forEach(function(entry){ if(entry.isIntersecting){ bar.classList.add('is-visible'); io2.unobserve(entry.target); } });
+}, { threshold: 0 });
+io2.observe(trigger);
+})();
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Os 4 Pilares da Oração Eficaz — Ebook + Audiobook</title>
+<meta name="description" content="Descubra os 4 pilares bíblicos que sustentam uma oração eficaz. Ebook + Audiobook por apenas R$27.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,900;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1475796490424597');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1475796490424597&ev=PageView&noscript=1"
+/></noscript>
+
+<!-- MICROSOFT CLARITY -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "y1h6enjm4x");
+</script>
+
+<style>
+:root {
+--warm-dark: radial-gradient(150% 95% at 50% -15%, #fdf6e6 0%, #f8ecd2 42%, #f3e2ba 74%);
+--warm-dark-soft: radial-gradient(150% 95% at 50% -15%, #faf1de 0%, #f5e5c5 42%, #efdcac 74%);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+background: #f7ecd6;
+font-family: 'Inter', Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+.page { max-width: 430px; margin: 0 auto; position: relative; }
+.page::before {
+content:'';
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 500;
+opacity: .045;
+mix-blend-mode: overlay;
+background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+img, video { display:block; max-width:100%; height:auto; }
+.light-glow {
+position:absolute; top:-70px; left:50%; transform:translateX(-50%);
+width:320px; height:320px; border-radius:50%;
+background: radial-gradient(circle, rgba(201,162,39,.32) 0%, rgba(201,162,39,0) 70%);
+pointer-events:none; z-index:-1;
+}
+
+/* overlap entre seções — cria o ritmo dinâmico */
+.sec { position: relative; width: 100%; }
+.sec-overlap { margin-top: -24px; border-radius: 28px 28px 0 0; }
+
+.eyebrow { font-family: Arial, sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#C9A227; text-align:center; margin-bottom:10px; }
+
+.btn {
+display:block; width:100%;
+background: linear-gradient(135deg, #16a34a, #22c55e);
+color:#fff; font-family: Arial, sans-serif;
+font-size:17px; font-weight:900;
+text-align:center; padding:18px 20px;
+border-radius:14px; text-decoration:none;
+box-shadow: 0 8px 28px rgba(34,197,94,.4);
+letter-spacing:.3px;
+animation: pulseGlow 2.4s ease-in-out infinite;
+}
+.micro { font-family: Arial, sans-serif; font-size:12px; color:#777; text-align:center; margin-top:10px; }
+
+@keyframes pulseGlow {
+0%, 100% { box-shadow: 0 8px 28px rgba(34,197,94,.4); }
+50% { box-shadow: 0 8px 40px rgba(34,197,94,.8); }
+}
+
+.check-dot {
+width: 26px; height: 26px; min-width: 26px;
+background: #C9A227; border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+color: #0a0a0a; font-size: 13px; font-weight: 900; flex-shrink: 0;
+}
+
+.card-dark { background:#151515; border:1px solid #262626; border-radius:16px; overflow:hidden; margin-bottom:14px; }
+.card-dark-header { background:#C9A227; padding:9px 16px; font-family:'Inter',Arial,sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a0a0a; }
+.card-dark-body { padding:16px 18px; font-family:'Inter',Arial,sans-serif; }
+
+.card-bonus { background:#fffbf0; border:1px solid #ecdfba; border-left:3px solid #C9A227; border-radius:0 14px 14px 0; margin-bottom:12px; overflow:hidden; }
+
+.badge { display:inline-block; background:#C9A227; color:#0a0a0a; font-family:'Inter',Arial,sans-serif; font-size:11px; font-weight:800; padding:4px 11px; border-radius:30px; text-transform:uppercase; }
+
+.etemmais { text-align:center; margin:22px 0 18px; position:relative; }
+.etemmais::before { content:''; position:absolute; top:50%; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,#2a2a2a,transparent); }
+.etemmais span { position:relative; background:#0a0a0a; padding:0 14px; color:#C9A227; font-family:'Inter',Arial,sans-serif; font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+
+.pain-card { background:#fff; border:1px solid #eee; border-left:4px solid #C9A227; border-radius:0 12px 12px 0; padding:14px 16px; margin-bottom:10px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+.pain-card p { font-family:'Inter',Arial,sans-serif; font-size:14px; color:#333; line-height:1.5; font-style:italic; }
+
+.check-item { display:flex; gap:13px; align-items:flex-start; padding:14px 15px; background:#fff; border:1px solid #eee; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,.05); margin-bottom:10px; }
+.check-item p { font-family:'Inter',Arial,sans-serif; font-size:14.5px; color:#222; line-height:1.5; }
+
+.faq-item { background:#fffbf0; border:1px solid #ecdfba; border-radius:14px; padding:16px 18px; margin-bottom:10px; }
+.faq-item p.q { font-family:'Inter',Arial,sans-serif; color:#241d08; font-size:14.5px; font-weight:700; margin-bottom:6px; }
+.faq-item p.a { font-family:'Inter',Arial,sans-serif; color:#7a6845; font-size:13px; line-height:1.6; }
+
+.guarantee-seal { width:96px; height:96px; }
+
+.sticky-bar { position:fixed; left:0; right:0; bottom:0; z-index:999; max-width:430px; margin:0 auto; background:rgba(253,246,230,.97); border-top:1px solid #C9A227; padding:10px 14px 12px; display:flex; align-items:center; gap:10px; backdrop-filter:blur(6px); box-shadow:0 -6px 24px rgba(0,0,0,.08); opacity:0; transform:translateY(100%); pointer-events:none; transition:opacity .5s ease, transform .5s ease; }
+.sticky-bar.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+.sticky-bar .price { font-family:'Inter',Arial,sans-serif; color:#C9A227; font-size:13px; line-height:1.2; white-space:nowrap; }
+.sticky-bar .price b { display:block; font-size:19px; color:#241d08; }
+.sticky-bar a { flex:1; text-align:center; font-family:'Inter',Arial,sans-serif; font-weight:900; font-size:14px; background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; padding:13px 10px; border-radius:12px; text-decoration:none; box-shadow:0 6px 18px rgba(34,197,94,.4); animation:pulseGlow 2.4s ease-in-out infinite; }
+
+.video-wrap { position:relative; background:#000; }
+.video-wrap video { width:100%; }
+.mute-btn { position:absolute; bottom:14px; right:14px; background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.4); color:#fff; font-family:'Inter',Arial,sans-serif; font-size:12px; font-weight:700; padding:8px 12px; border-radius:20px; backdrop-filter:blur(4px); }
+
+.social-strip { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px; padding:10px 14px; background:rgba(201,162,39,.08); border:1px solid rgba(201,162,39,.25); border-radius:12px; }
+.social-strip p { font-family:'Inter',Arial,sans-serif; font-size:12.5px; color:#C9A227; font-weight:700; text-align:center; }
+
+.scroll-cue { display:flex; justify-content:center; margin-top:20px; }
+.scroll-cue svg { animation: bounceCue 1.8s ease-in-out infinite; }
+@keyframes bounceCue { 0%,100%{transform:translateY(0); opacity:.5;} 50%{transform:translateY(8px); opacity:1;} }
+
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal{opacity:1;transform:none;transition:none;} .btn,.sticky-bar a{animation:none;} .scroll-cue svg{animation:none;} }
+
+.phone-mock-wrap { display:flex; justify-content:center; margin: 22px 0 6px; }
+.phone-mock { width:210px; height:420px; background:#000; border-radius:32px; border:3px solid #333; box-shadow:0 20px 50px rgba(0,0,0,.6); position:relative; overflow:hidden; padding:9px; }
+.phone-notch { position:absolute; top:9px; left:50%; transform:translateX(-50%); width:64px; height:16px; background:#000; border-radius:10px; z-index:5; }
+.phone-screen { width:100%; height:100%; background:#0a0a0a; border-radius:22px; position:relative; overflow:hidden; }
+.pm-frame { position:absolute; inset:0; padding:26px 13px 12px; opacity:0; transition:opacity .6s ease; display:flex; flex-direction:column; text-align:center; }
+.pm-frame.active { opacity:1; }
+.pm-eyebrow { font-family:'Inter',Arial,sans-serif; font-size:7.5px; color:#C9A227; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+.pm-bar { height:4px; background:#1c1c1c; border-radius:4px; overflow:hidden; margin-bottom:12px; }
+.pm-bar-fill { height:100%; background:linear-gradient(90deg,#C9A227,#f0d878); border-radius:4px; }
+.pm-q { font-family:'Fraunces',Georgia,serif; font-size:10.5px; color:#fff; line-height:1.35; margin-bottom:10px; text-align:left; }
+.pm-opt { font-family:'Inter',Arial,sans-serif; font-size:8.5px; text-align:center; padding:6px 4px; border-radius:6px; border:1px solid #333; color:#ccc; margin-bottom:6px; }
+.pm-opt.sel { background:#C9A227; border-color:#C9A227; color:#0a0a0a; font-weight:700; }
+.pm-result-icon { font-size:24px; margin: 14px 0 4px; }
+.pm-result-title { font-family:'Fraunces',Georgia,serif; font-size:14px; color:#C9A227; font-weight:700; margin-bottom:6px; }
+.pm-result-text { font-family:'Inter',Arial,sans-serif; font-size:8px; color:#999; line-height:1.4; }
+.pm-cta { margin-top:auto; background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; font-family:'Inter',Arial,sans-serif; font-size:8.5px; font-weight:800; padding:8px; border-radius:8px; }
+@media (prefers-reduced-motion: reduce) { .pm-frame{transition:none;} }
+
 </style>
 </head>
 <body>
